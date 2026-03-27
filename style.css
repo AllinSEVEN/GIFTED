@@ -1,0 +1,501 @@
+/* Reset & Variables */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+:root {
+    --primary-blue: #0b4d96;
+    --dark-blue: #072e59;
+    --card-blue: #86C1EB; /* The translucent light blue from the screenshot */
+    --text-white: #ffffff;
+    --text-grey: #e2e8f0;
+    --star-pink: #f472b6;
+    --font-kanit: 'Kanit', sans-serif;
+    --font-sarabun: 'Sarabun', sans-serif;
+}
+
+
+body {
+    font-family: var(--font-kanit);
+    /* Load background provided by user */
+    background: url('assets/background.jpg') center/cover no-repeat fixed;
+    /* Fallback color matching the moody grey/blue sky */
+    background-color: #5c6e7a;
+    color: var(--text-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* Semi-transparent dark overlay to make text readable against bright skies */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(50,70,90,0.6) 0%, rgba(50,70,90,0.2) 100%);
+    z-index: -1;
+}
+
+
+/* TOP NAVIGATION */
+.top-nav {
+    background-color: var(--primary-blue);
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.hamburger:hover { background-color: rgba(255,255,255,0.1); }
+
+
+/* EP Tab on the right */
+.ep-tab {
+    background-color: white;
+    color: #1e293b;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 25px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    /* Angled left side */
+    clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    cursor: pointer;
+    color: #1e293b;
+}
+
+
+/* Slide out Menu */
+.side-menu {
+    position: fixed;
+    top: 0; left: -300px;
+    width: 300px; height: 100%;
+    background-color: #0f172a;
+    z-index: 2000;
+    transition: left 0.3s ease;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.side-menu.active { left: 0; }
+
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+
+.menu-header button {
+    background: none; border: none;
+    color: white; font-size: 1.5rem; cursor: pointer;
+}
+
+
+.menu-links { list-style: none; }
+
+
+.menu-links li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+
+.menu-links li a i { width: 30px; }
+.menu-links li a:hover { background-color: rgba(255,255,255,0.05); }
+
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1500;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s;
+}
+
+
+.menu-overlay.active { opacity: 1; visibility: visible; }
+
+
+/* MAIN CONTENT */
+.main-layout {
+    padding: 20px 4%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Header (Logo & Title) */
+.school-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+
+.school-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.school-logo {
+    width: 140px; /* Sized to match the large gold crest */
+    height: auto;
+}
+
+
+.school-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.school-titles h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: -5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
+.school-titles h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+
+.motto {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--text-grey);
+    margin-top: 5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 2rem;
+}
+
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+}
+
+
+.social-icons a:hover { transform: scale(1.1); }
+
+
+/* Center Category Title */
+.category-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #82C0ED; /* Light blue text matching the card colors */
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.emoji-star {
+    color: var(--star-pink);
+    text-shadow: 0 0 10px rgba(244,114,182,0.5);
+}
+
+
+/* Grid Layout container */
+.grid-layout {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+
+/* Cards Area (Left Side) */
+.cards-container {
+    flex: 3;
+    display: flex;
+    gap: 20px;
+}
+
+
+.story-card {
+    flex: 1;
+    background-color: var(--card-blue);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    /* Adding subtle transparency for that UI glass effect without blur */
+    background-color: rgba(130, 192, 237, 0.9);
+}
+
+
+.story-header {
+    background-color: rgba(255,255,255,0.2);
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+
+/* Use standard aspect ratio for the placeholder image inside card */
+.story-image-placeholder {
+    height: 160px;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* If user adds an actual image inside here, it should cover */
+}
+
+
+.story-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.story-text {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+
+.story-text strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+
+.story-text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+/* Sidebar Box (Right Side) */
+.sidebar-box {
+    flex: 1;
+    background-color: var(--card-blue);
+    background-color: rgba(130, 192, 237, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    min-width: 250px;
+}
+
+
+.qr-placeholder {
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+.sidebar-text h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+}
+
+
+.sidebar-text p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #e2e8f0;
+}
+
+
+/* Read More Button */
+.read-more-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-family: var(--font-kanit);
+    font-size: 0.9rem;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+
+.read-more-btn:hover {
+    background-color: var(--dark-blue);
+}
+
+
+/* Modal Styling */
+.news-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+
+.news-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.modal-content {
+    background-color: #0f172a;
+    border: 1px solid var(--primary-blue);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: 15px;
+    overflow-y: auto;
+    position: relative;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+
+.news-modal.active .modal-content {
+    transform: translateY(0);
+}
+
+
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.modal-title {
+    font-size: 1.5rem;
+    color: var(--card-blue);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+
+.modal-body {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+
+.poster-placeholder {
+    width: 100%;
+    height: 250px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(255,255,255,0.4);
+}
+
+
+/* Responsive Scaling */
+@media (max-width: 1200px) {
+    .school-titles h1 { font-size: 2.8rem; }
+    .school-titles h2 { font-size: 1.5rem; }
+}
+
+
+@media (max-width: 900px) {
+    .grid-layout { flex-direction: column; }
+    .cards-container { flex-direction: column; }
+}
+
+
+@media (max-width: 600px) {
+    .school-header { flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .school-brand { flex-direction: column; }
+    .social-icons { margin-top: 15px; }
+}
+
+
+
+
+
