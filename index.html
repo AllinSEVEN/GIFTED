@@ -1,69 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritdha High School</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Ritdha High School - Student Portal</title>
+    <!-- Import Thai fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header>
-    <!-- สร้างกล่อง NAVBAR -->
-    <div class="container nav">
-        <nav>
-            <div class="right">
-                <li><a href='#'><img src="https://th.bing.com/th/id/R.c4e30aa20f7268f9f490f8f24abd843d?rik=hVZGUz4LjySLuQ&pid=ImgRaw&r=0" class="novel" id="icon"></a></li>
-                <li><a href='#'><img src="https://www.pngarts.com/files/11/IG-Logo-PNG-Transparent-Image.png" class="ig"id="icon" ></a></li>
-                <li><a href='#'><img src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" class="twitter" id="icon"></a></li>
-            </div>
-            <div>
-            <a href='#'><img src='https://static.vecteezy.com/system/resources/previews/032/047/910/original/hamburger-menu-line-three-lines-3-web-navigation-app-ux-ui-uxui-more-list-application-user-site-bar-icon-black-white-outline-shape-sign-symbol-vector.jpg' class="hamburger"></a>
-        </nav>
+
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <!-- Hamburger Menu Button -->
+        <button id="hamburger-btn" class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+
+        <!-- Right Side EP Tab -->
+        <div class="ep-tab">
+            <span>EP1+EP2</span>
+            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </nav>
+
+
+    <!-- Hidden Slide-Out Menu -->
+    <div id="side-menu" class="side-menu">
+        <div class="menu-header">
+            <h3>เมนู / Menu</h3>
+            <button id="close-menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> หน้าแรก (EP1+EP2)</a></li>
+            <li><a href="#"><i class="fa-solid fa-forward-step"></i> ไปยัง EP ถัดไป (EP3+EP4)</a></li>
+            <li><a href="#"><i class="fa-solid fa-forward-step"></i> กระโดดไป EP6+EP7 (EP6)</a></li>
+            <li><a href="#"><i class="fa-solid fa-user"></i> ข้อมูลนักเรียน GIFTED แต่ละรุ่น (Profile)</a></li>
+        </ul>
     </div>
-    <!-- Nav End -->
-    </header>
-    <!--News Section-->
-    <section class="news" id="news">
-        <div class="container">
-            <h2 class="section-title">เล่าจากภาพ (ชมรมถ่ายภาพ + ชมรมวารสาร)</h2>
-            <div class="course-grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="HTML Course">
-                    <div class="card-content">
-                        <h3>ชื่อข่าว1</h3>
-                        <p>เนื้อหาข่าว</p>
-                        <a href="#" class="card-btn">อ่านเพิ่มเติม</a>
-                    </div>
+
+
+    <div class="main-layout">
+       
+        <!-- Header Section -->
+        <header class="school-header">
+            <!-- Left: Logo & Details -->
+            <div class="school-brand">
+                <img src="assets/logo.png" alt="Ritdha Logo" class="school-logo">
+                <div class="school-titles">
+                    <h1>โรงเรียนฤทธาวิทยาคม</h1>
+                    <h2>Ritdha High School</h2>
+                    <p class="motto">• AD ASTRA SAPIENTIAM •</p>
                 </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="HTML Course">
-                    <div class="card-content">
-                        <h3>ชื่อข่าว2</h3>
-                        <p>เนื้อหาข่าว</p>
-                        <a href="#" class="card-btn">อ่านเพิ่มเติม</a>
+            </div>
+
+
+            <!-- Right: Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.readawrite.com/a/96f4dc239d9cf98f5ba504051dfb7864"><i class="fa-solid fa-book"></i></a>
+                <a href="https://www.instagram.com/siamwit_tid_gifted?igsh=b2VkZWF2enBiNmNx"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/myflyli33"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </header>
+
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+           
+            <!-- Category Title -->
+            <h3 class="category-title">เล่าจากภาพ (ชมรมถ่ายภาพ + ชมรมวารสาร) <span class="emoji-star">⭐</span></h3>
+           
+            <div class="grid-layout">
+                <!-- Left Section: 3 News/Story Cards -->
+                <div class="cards-container">
+                   
+                    <!-- Card 1 (with placeholder content) -->
+                    <div class="story-card">
+                        <div class="story-header">ไลฟ์สดที่มาแรงที่สุดใน...</div>
+                        <div class="story-image-placeholder">
+                            <!-- In a real site, place an <img> here -->
+                            <i class="fa-solid fa-video" style="font-size:3rem; color:rgba(255,255,255,0.5);"></i>
+                        </div>
+                        <div class="story-text">
+                            <strong>พี่เอสวงCRUSH ไลฟ์</strong>
+                            <p>เปิดความลับ กับเพลงหูดับของวงMARS ไลฟ์ฮันโด่งดังว่อนโลกอินเทอร์เน็ต</p>
+                            <button class="read-more-btn" data-title="พี่เอสวงCRUSH ไลฟ์เปิดความลับ" data-content="รายละเอียดการไลฟ์สดที่ทำให้แฟนคลับต้องตกตะลึง เมื่อพี่เอสจากวง CRUSH ออกมาพูดคุยถึงเพลงหูดับของวง MARS ทำให้เกิดกระแสการพูดถึงอย่างหนักบนทวิตเตอร์และสื่อออนไลน์ทุกช่องทาง... (News Full Details Here)">อ่านเพิ่มเติม (Read More)</button>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="HTML Course">
-                    <div class="card-content">
-                        <h3>ชื่อข่าว3</h3>
-                        <p>เนื้อหาข่าว</p>
-                        <a href="#" class="card-btn">อ่านเพิ่มเติม</a>
+
+
+                    <!-- Card 2 (Empty structure waiting for content) -->
+                    <div class="story-card">
+                        <div class="story-header">วงพี่น้องร่วมงานกัน</div>
+                        <div class="story-image-placeholder">
+                            <i class="fa-solid fa-music" style="font-size:3rem; color:rgba(255,255,255,0.5);"></i>
+                        </div>
+                        <div class="story-text">
+                            <strong>วงพี่ MARS รับวงน้อง</strong>
+                            <p>CRUSH ร่วมทำงานด้วยกันต่อไป จากไลฟ์ที่ผ่านมาของวงM.</p>
+                            <button class="read-more-btn" data-title="วงพี่ MARS รับวงน้องร่วมงาน" data-content="จากเหตุการณ์ไลฟ์ชี้แจงที่ผ่านมา ทางค่ายได้ข้อสรุปว่าวง MARS และวง CRUSH จะต้องทำงานร่วมกันในโปรเจกต์พิเศษปลายปีนี้ เพื่อกระชับความสัมพันธ์และสยบดราม่าระหว่างแฟนคลับของทั้งสองฝ่าย... (News Full Details Here)">อ่านเพิ่มเติม (Read More)</button>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="HTML Course">
-                    <div class="card-content">
-                        <h3>สิ่งแนะนำ</h3>
-                        <p>เนื้อหาแนะนำ</p>
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="HTML Course">
+
+
+                    <!-- Card 3 (Empty structure waiting for content) -->
+                    <div class="story-card">
+                        <div class="story-header">พี่เอสวง CRUSH พาน...</div>
+                        <div class="story-image-placeholder">
+                            <i class="fa-solid fa-users" style="font-size:3rem; color:rgba(255,255,255,0.5);"></i>
+                        </div>
+                        <div class="story-text">
+                            <strong>สยบทุกข่าวลือ</strong>
+                            <p>น้องคิวหุ่นหล่อบอกต่อห้อง มัธยม4/3 ถ่ายแบบคู่กับพี่เอสวง CRUSH</p>
+                            <button class="read-more-btn" data-title="สยบทุกข่าวลือ น้องคิวถ่ายแบบ" data-content="ภาพหลุดเซ็ตล่าสุดจากการถ่ายแบบนิตยสารโรงเรียน แสดงให้เห็นถึงความเข้ากันได้อย่างลงตัวระหว่าง น้องคิว มัธยม 4/3 และพี่เอสจากวง CRUSH ทำเอาแฟนคลับฟินกันเป็นแถบๆ และถือเป็นการสยบข่าวลือเกาเหลาได้เป็นอย่างดี... (News Full Details Here)">อ่านเพิ่มเติม (Read More)</button>
+                        </div>
                     </div>
+
+
                 </div>
+
+
+                <!-- Right Section: Suggested Series / Sidebar -->
+                <aside class="sidebar-box">
+                    <div class="qr-placeholder">
+                        <i class="fa-solid fa-qrcode" style="font-size: 5rem; color: #1e293b;"></i>
+                    </div>
+                   
+                    <div class="sidebar-text">
+                        <h4>ซีรีส์แนะนำประจำวันนี้</h4>
+                        <p>เรมโป (ThymePo)<br>Heart That Skips a Beat</p>
+                    </div>
+
+
+                    <div class="poster-placeholder">
+                        <span>Poster Image Area</span>
+                    </div>
+                </aside>
+
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+    <!-- Overlay covering background when menu is open -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+
+    <!-- News Modal for Full Read -->
+    <div id="news-modal" class="news-modal">
+        <div class="modal-content">
+            <button id="close-modal" class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2 id="modal-title" class="modal-title">News Title</h2>
+            <div id="modal-body" class="modal-body">
+                Full news content will appear here...
             </div>
         </div>
-    </section>
+    </div>
 
 
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
 
