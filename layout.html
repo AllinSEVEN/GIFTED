@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritdha High School</title>
+
+    <!-- font + css -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Sarabun&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+    <button id="hamburger-btn" class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="ep-tab">
+        <span id="ep-title">EP1+EP2</span>
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</nav>
+
+<!-- Side Menu -->
+<div id="side-menu" class="side-menu">
+    <div class="menu-header">
+        <h3>Menu</h3>
+        <button id="close-menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="menu-links">
+        <li><a onclick="loadPage('EP1_2.html')">EP1+EP2</a></li>
+        <li><a onclick="loadPage('EP3_4.html')">EP3+EP4 (เอสทิว)</a></li>
+        <li><a onclick="loadPage('EP5.html')">EP5 (นนท์เคน)</a></li>
+        <li><a onclick="loadPage('EP6_7.html')">EP6+EP7 (ดิณณ์เคเบิ้ล)</a></li>
+        <li><a onclick="loadPage('EP8.html')">EP8.1+EP8.2+EP8.3 (จ้าวชัดเจน)</a></li>
+        <li><a onclick="loadPage('EP9_10.html')">EP9.1+EP9.2+EP10 (เซนต์ชิน)</a></li>
+        <li><a onclick="loadPage('GIFTED.html')">ข้อมูลนักเรียน GIFTED แต่ละรุ่น</a></li>
+    </ul>
+</div>
+    <!-- Right: Social Icons -->
+    <div class="social-icons">
+        <a href="https://www.readawrite.com/a/96f4dc239d9cf98f5ba504051dfb7864"><i class="fa-solid fa-book"></i></a>
+        <a href="https://www.instagram.com/siamwit_tid_gifted?igsh=b2VkZWF2enBiNmNx"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/myflyli33"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+</header>
+
+<div class="main-layout">
+
+    <!-- Header -->
+    <header class="school-header">
+        <div class="school-brand">
+            <img src="pic/logo.jpg" class="school-logo">
+            <div class="school-titles">
+                <h1>โรงเรียนฤทธาวิทยาคม</h1>
+                <h2>Ritdha High School</h2>
+                <p class="motto">• AD ASTRA SAPIENTIAM •</p>
+            </div>
+        </div>
+    </header>
+
+    <main id="content"></main>
+
+</div>
+
+<!-- modal -->
+<div id="news-modal" class="news-modal">
+    <div class="modal-content">
+        <button id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+        <h2 id="modal-title"></h2>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+</body>
+</html>
