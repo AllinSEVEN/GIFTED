@@ -28,10 +28,14 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     margin: 0;
-    background-image: url("pic/backR.jpg"); /* ใส่ path รูป */
-    background-size: cover;      /* ให้เต็มจอ */
-    background-position: center; /* จัดกลาง */
-    background-repeat: no-repeat;/* ไม่ซ้ำ */
+    background-image: url("pic/backR.jpg");
+    /* ใส่ path รูป */
+    background-size: cover;
+    /* ให้เต็มจอ */
+    background-position: center;
+    /* จัดกลาง */
+    background-repeat: no-repeat;
+    /* ไม่ซ้ำ */
 }
 
 
@@ -486,15 +490,22 @@ body::before {
 }
 
 
-.close-modal-btn {
+#close-modal {
     position: absolute;
     top: 15px;
     right: 20px;
     background: none;
     border: none;
-    color: white;
-    font-size: 1.5rem;
+    color: #cbd5e1;
+    /* softer white */
+    font-size: 2rem;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#close-modal:hover {
+    color: var(--star-pink);
+    transform: scale(1.1);
 }
 
 
@@ -513,6 +524,13 @@ body::before {
     color: #e2e8f0;
 }
 
+.modal {
+    display: none;
+}
+
+.modal.show {
+    display: flex;
+}
 
 .poster-placeholder img {
     width: 100%;
@@ -568,5 +586,122 @@ body::before {
     }
 }
 
+/* GIFTED Page Styles */
+.gifted-page {
+    background-color: #1e293b; /* แบบเรียบๆ ให้กลมกลืนกับธีมสีน้ำเงินเข้ม */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 20px;
+}
 
+.gifted-section {
+    margin-bottom: 50px;
+}
 
+.section-title {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* รูปร่างของรูปภาพ */
+.img-placeholder {
+    background-color: #334155;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 600;
+    aspect-ratio: 3/4; /* เพื่อให้กรอบเป็นทรงตั้งเหมือนรูปคน 3:4 */
+    border-radius: 12px;
+    transition: transform 0.3s, background-color 0.3s;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.img-placeholder:hover {
+    transform: scale(1.05);
+    background-color: #475569;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+/* Image styles for actual photos */
+.gifted-img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.gifted-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 10;
+    position: relative;
+}
+
+.special-img {
+    aspect-ratio: auto;
+    max-height: 500px;
+}
+
+.landscape-img {
+    aspect-ratio: auto; /* ไม่บังคับโดนตัดเป็น 3:4 ให้สัดส่วนภาพเต็มใบ */
+}
+
+/* การจัด Layout ของ Grid แต่ละแบบ */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.grid-15 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.grid-1 {
+    display: flex;
+    justify-content: center;
+}
+.grid-1 .photo-card {
+    width: 25%;
+    min-width: 220px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Responsive ของ Grid */
+@media (max-width: 1024px) {
+    .grid-15 { grid-template-columns: repeat(4, 1fr); }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 800px) {
+    .grid-15 { grid-template-columns: repeat(3, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .grid-1 .photo-card { width: 40%; }
+}
+
+@media (max-width: 600px) {
+    .grid-15 { grid-template-columns: repeat(2, 1fr); }
+    .grid-4 { grid-template-columns: repeat(1, 1fr); }
+    .grid-3 { grid-template-columns: repeat(1, 1fr); }
+    .grid-1 .photo-card { width: 60%; }
+}
