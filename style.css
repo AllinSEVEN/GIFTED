@@ -443,6 +443,13 @@ body::before {
     background-color: var(--dark-blue);
 }
 
+/*footer*/
+footer{
+    background-color: rgb(206, 102, 102);
+    color: antiquewhite;
+    padding: 5px;
+}
+
 
 /* Modal Styling */
 .news-modal {
