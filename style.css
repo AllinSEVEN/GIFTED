@@ -444,10 +444,11 @@ body::before {
 }
 
 /*footer*/
-footer{
+.footer {
     background-color: rgb(136, 153, 242);
     color: white;
     padding: 5px;
+    text-align: center;
 }
 
 
