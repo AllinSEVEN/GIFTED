@@ -445,7 +445,7 @@ body::before {
 
 /*footer*/
 footer{
-    background-color: rgb(226, 225, 175);
+    background-color: primary blue;
     color: antiquewhite;
     padding: 5px;
 }
