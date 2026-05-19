@@ -345,7 +345,8 @@ body::before {
 /* Use standard aspect ratio for the placeholder image inside card */
 .story-image-placeholder {
     width: 100%;
-    aspect-ratio: 16/9; /* รักษาสัดส่วนภาพให้เป็น 16:9 เท่ากันทุกหน้าจอ */
+    aspect-ratio: 16/9;
+    /* รักษาสัดส่วนภาพให้เป็น 16:9 เท่ากันทุกหน้าจอ */
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -358,7 +359,8 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; /* เน้นแสดงส่วนบนของภาพ (ตำแหน่งหน้าคน) ไว้เสมอ */
+    object-position: top center;
+    /* เน้นแสดงส่วนบนของภาพ (ตำแหน่งหน้าคน) ไว้เสมอ */
 }
 
 
@@ -398,14 +400,17 @@ body::before {
 
 .qr-placeholder {
     width: 100%;
-    aspect-ratio: 1/1; /* QR Code ควรเป็นสี่เหลี่ยมจัตุรัส */
+    aspect-ratio: 1/1;
+    /* QR Code ควรเป็นสี่เหลี่ยมจัตุรัส */
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 7px; /* ลดขนาดภาพลงโดยเว้นขอบ (ปรับลดขอบลงครึ่งนึง) */
-    border-radius: 12px; /* เพิ่มความโค้งให้กรอบด้านนอก */
+    padding: 7px;
+    /* ลดขนาดภาพลงโดยเว้นขอบ (ปรับลดขอบลงครึ่งนึง) */
+    border-radius: 12px;
+    /* เพิ่มความโค้งให้กรอบด้านนอก */
 }
 
 .qr-placeholder img {
@@ -413,7 +418,8 @@ body::before {
     height: 100%;
     object-fit: contain;
     object-position: center;
-    border-radius: 8px; /* เพิ่มความโค้งให้ตัวรูปภาพ */
+    border-radius: 8px;
+    /* เพิ่มความโค้งให้ตัวรูปภาพ */
 }
 
 
@@ -421,14 +427,19 @@ body::before {
     font-size: 1.1rem;
     font-weight: 600;
     color: white;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--dark-blue); /* เปลี่ยนเส้นใต้เป็นสีน้ำเงินเข้มตามธีม */
+    padding-bottom: 5px;
+    display: inline-block;
 }
 
 
 .sidebar-text p {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    font-weight: 600; /* ตัวหนา */
     margin-bottom: 15px;
-    color: #e2e8f0;
+    color: var(--text-white); /* สีขาวแบบธีมเว็บ */
+    text-shadow: 2px 2px 4px var(--dark-blue); /* เงาสีน้ำเงินเข้มให้เด่นจากพื้น */
 }
 
 
@@ -543,18 +554,21 @@ body::before {
 
 .modal-img-container {
     width: 100%;
-    aspect-ratio: 16/9; /* ขนาดแบบหน้ากล่อง */
-    overflow-y: auto; /* มีตัวเลื่อนขึ้นลง */
+    aspect-ratio: 16/9;
+    /* ขนาดแบบหน้ากล่อง */
+    overflow-y: auto;
+    /* มีตัวเลื่อนขึ้นลง */
     border-radius: 8px;
     border: 3px solid var(--card-blue);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .modal-img-container .modal-news-img {
     width: 100%;
-    height: auto; /* โชว์เต็มภาพ */
+    height: auto;
+    /* โชว์เต็มภาพ */
     display: block;
 }
 
@@ -562,28 +576,34 @@ body::before {
 .modal-content::-webkit-scrollbar {
     width: 8px;
 }
+
 .modal-content::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
 }
+
 .modal-content::-webkit-scrollbar-thumb {
     background: var(--card-blue);
     border-radius: 10px;
 }
+
 .modal-content::-webkit-scrollbar-thumb:hover {
-    background: #5A9BD5; /* สีฟ้าเข้มขึ้นนิดนึงเมื่อชี้ */
+    background: #5A9BD5;
+    /* สีฟ้าเข้มขึ้นนิดนึงเมื่อชี้ */
 }
 
 /* Custom Scrollbar for Modal Image Container */
 .modal-img-container::-webkit-scrollbar {
     width: 6px;
 }
+
 .modal-img-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
+
 .modal-img-container::-webkit-scrollbar-thumb {
-    background: var(--card-blue); 
+    background: var(--card-blue);
     border-radius: 8px;
 }
 
@@ -597,7 +617,8 @@ body::before {
 
 .poster-placeholder {
     width: 100%;
-    aspect-ratio: 3/4; /* โปสเตอร์มักมีสัดส่วน 3:4 ทรงตั้ง */
+    aspect-ratio: 3/4;
+    /* โปสเตอร์มักมีสัดส่วน 3:4 ทรงตั้ง */
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -609,7 +630,8 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; /* เน้นแสดงส่วนบนของภาพ */
+    object-position: top center;
+    /* เน้นแสดงส่วนบนของภาพ */
 }
 
 /* Responsive Scaling */
@@ -654,10 +676,11 @@ body::before {
 
 /* GIFTED Page Styles */
 .gifted-page {
-    background-color: #1e293b; /* แบบเรียบๆ ให้กลมกลืนกับธีมสีน้ำเงินเข้ม */
+    background-color: #1e293b;
+    /* แบบเรียบๆ ให้กลมกลืนกับธีมสีน้ำเงินเข้ม */
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
 }
 
@@ -683,11 +706,12 @@ body::before {
     align-items: center;
     font-size: 4rem;
     font-weight: 600;
-    aspect-ratio: 3/4; /* เพื่อให้กรอบเป็นทรงตั้งเหมือนรูปคน 3:4 */
+    aspect-ratio: 3/4;
+    /* เพื่อให้กรอบเป็นทรงตั้งเหมือนรูปคน 3:4 */
     border-radius: 12px;
     transition: transform 0.3s, background-color 0.3s;
     border: 2px dashed rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
@@ -702,17 +726,18 @@ body::before {
 .gifted-img {
     width: 100%;
     object-fit: cover;
-    object-position: top center; /* เน้นส่วนบนของภาพ */
+    object-position: top center;
+    /* เน้นส่วนบนของภาพ */
     aspect-ratio: 3/4;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: block;
 }
 
 .gifted-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     z-index: 10;
     position: relative;
 }
@@ -723,7 +748,8 @@ body::before {
 }
 
 .landscape-img {
-    aspect-ratio: auto; /* ไม่บังคับโดนตัดเป็น 3:4 ให้สัดส่วนภาพเต็มใบ */
+    aspect-ratio: auto;
+    /* ไม่บังคับโดนตัดเป็น 3:4 ให้สัดส่วนภาพเต็มใบ */
 }
 
 /* การจัด Layout ของ Grid แต่ละแบบ */
@@ -743,6 +769,7 @@ body::before {
     display: flex;
     justify-content: center;
 }
+
 .grid-1 .photo-card {
     width: 25%;
     min-width: 220px;
@@ -756,19 +783,44 @@ body::before {
 
 /* Responsive ของ Grid */
 @media (max-width: 1024px) {
-    .grid-15 { grid-template-columns: repeat(4, 1fr); }
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-15 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 800px) {
-    .grid-15 { grid-template-columns: repeat(3, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .grid-1 .photo-card { width: 40%; }
+    .grid-15 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .grid-1 .photo-card {
+        width: 40%;
+    }
 }
 
 @media (max-width: 600px) {
-    .grid-15 { grid-template-columns: repeat(2, 1fr); }
-    .grid-4 { grid-template-columns: repeat(1, 1fr); }
-    .grid-3 { grid-template-columns: repeat(1, 1fr); }
-    .grid-1 .photo-card { width: 60%; }
+    .grid-15 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-1 .photo-card {
+        width: 60%;
+    }
 }
