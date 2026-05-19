@@ -63,8 +63,20 @@ function setupReadMore() {
   buttons.forEach(btn => {
     btn.onclick = () => {
       document.getElementById("modal-title").innerText = btn.dataset.title;
-      // อ่านเพิ่มเติมปกติจะใช้ innerText เป็นข้อความ ไม่ใช่ innerHTML
-      document.getElementById("modal-body").innerHTML = `<p style="white-space: pre-wrap;">${btn.dataset.content}</p>`;
+      
+      // ค้นหารูปภาพจากกล่องข่าวเดียวกัน
+      const card = btn.closest(".story-card");
+      let imageHtml = "";
+      if (card) {
+        const img = card.querySelector(".story-image-placeholder img");
+        if (img) {
+          // ดึง src เพื่อไปแสดงใน modal
+          imageHtml = `<div class="modal-img-container"><img src="${img.src}" class="modal-news-img" /></div>`;
+        }
+      }
+
+      // นำรูปภาพมาวางก่อนข้อความ
+      document.getElementById("modal-body").innerHTML = `${imageHtml}<p style="white-space: pre-wrap;">${btn.dataset.content}</p>`;
 
       document.getElementById("news-modal").classList.add("active");
     };
