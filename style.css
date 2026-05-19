@@ -306,7 +306,7 @@ body::before {
 .grid-layout {
     display: flex;
     gap: 20px;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 
@@ -315,6 +315,7 @@ body::before {
     flex: 3;
     display: flex;
     gap: 20px;
+    align-items: flex-start;
 }
 
 
@@ -343,12 +344,13 @@ body::before {
 
 /* Use standard aspect ratio for the placeholder image inside card */
 .story-image-placeholder {
-    height: 160px;
+    width: 100%;
+    aspect-ratio: 16/9; /* รักษาสัดส่วนภาพให้เป็น 16:9 เท่ากันทุกหน้าจอ */
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    /* If user adds an actual image inside here, it should cover */
+    overflow: hidden;
 }
 
 
@@ -356,6 +358,7 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center; /* เน้นแสดงส่วนบนของภาพ (ตำแหน่งหน้าคน) ไว้เสมอ */
 }
 
 
@@ -393,18 +396,24 @@ body::before {
     min-width: 250px;
 }
 
-.qr-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .qr-placeholder {
-    height: 160px;
+    width: 100%;
+    aspect-ratio: 1/1; /* QR Code ควรเป็นสี่เหลี่ยมจัตุรัส */
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    padding: 7px; /* ลดขนาดภาพลงโดยเว้นขอบ (ปรับลดขอบลงครึ่งนึง) */
+    border-radius: 12px; /* เพิ่มความโค้งให้กรอบด้านนอก */
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px; /* เพิ่มความโค้งให้ตัวรูปภาพ */
 }
 
 
@@ -532,6 +541,52 @@ body::before {
     color: #e2e8f0;
 }
 
+.modal-img-container {
+    width: 100%;
+    aspect-ratio: 16/9; /* ขนาดแบบหน้ากล่อง */
+    overflow-y: auto; /* มีตัวเลื่อนขึ้นลง */
+    border-radius: 8px;
+    border: 3px solid var(--card-blue);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.modal-img-container .modal-news-img {
+    width: 100%;
+    height: auto; /* โชว์เต็มภาพ */
+    display: block;
+}
+
+/* Custom Scrollbar for Modal Content */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--card-blue);
+    border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #5A9BD5; /* สีฟ้าเข้มขึ้นนิดนึงเมื่อชี้ */
+}
+
+/* Custom Scrollbar for Modal Image Container */
+.modal-img-container::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-img-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+.modal-img-container::-webkit-scrollbar-thumb {
+    background: var(--card-blue); 
+    border-radius: 8px;
+}
+
 .modal {
     display: none;
 }
@@ -540,18 +595,21 @@ body::before {
     display: flex;
 }
 
-.poster-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .poster-placeholder {
-    height: 160px;
+    width: 100%;
+    aspect-ratio: 3/4; /* โปสเตอร์มักมีสัดส่วน 3:4 ทรงตั้ง */
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.poster-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; /* เน้นแสดงส่วนบนของภาพ */
 }
 
 /* Responsive Scaling */
@@ -644,6 +702,7 @@ body::before {
 .gifted-img {
     width: 100%;
     object-fit: cover;
+    object-position: top center; /* เน้นส่วนบนของภาพ */
     aspect-ratio: 3/4;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
