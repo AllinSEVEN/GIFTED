@@ -1,0 +1,194 @@
+/* =========================================================
+   sidestory.css
+   สไตล์เฉพาะหน้า "หลังโรงเรียน"
+   ใช้ตัวแปรสี/ฟอนต์ร่วมกับ style.css หลัก
+   (--primary-blue, --dark-blue, --card-blue, --star-pink,
+    --text-white, --text-grey, --font-kanit, --font-sarabun)
+   ต้องโหลด style.css ก่อนไฟล์นี้เสมอ
+   ========================================================= */
+
+.ss-wrap {
+    padding-bottom: 20px;
+}
+
+/* ---------- Section title ---------- */
+.ss-section-title {
+    font-family: var(--font-kanit);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #82C0ED;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.ss-section-title .ss-star {
+    color: var(--star-pink);
+    text-shadow: 0 0 10px rgba(244, 114, 182, 0.5);
+}
+
+.ss-section-subtitle {
+    font-family: var(--font-sarabun);
+    font-size: 0.95rem;
+    color: var(--text-grey);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 24px;
+}
+
+/* ---------- List ---------- */
+.ss-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 760px;
+}
+
+/* ---------- Card ---------- */
+.ss-card {
+    background-color: rgba(130, 192, 237, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: box-shadow 0.25s ease;
+}
+
+.ss-card.open {
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ss-card-head {
+    padding: 16px 18px 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ss-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ss-pair-tag {
+    font-family: var(--font-sarabun);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: white;
+    background-color: var(--primary-blue);
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.ss-toggle {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.35s ease, background-color 0.2s ease;
+}
+
+.ss-toggle:hover {
+    background-color: var(--primary-blue);
+}
+
+.ss-card.open .ss-toggle {
+    transform: rotate(180deg);
+}
+
+.ss-title-preview {
+    font-family: var(--font-kanit);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 6px;
+}
+
+.ss-preview {
+    font-family: var(--font-sarabun);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* ---------- Expanding body ---------- */
+.ss-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.ss-body-inner {
+    padding: 6px 24px 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    margin: 0 18px;
+}
+
+.ss-full-title {
+    font-family: var(--font-kanit);
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+.ss-full-pair {
+    font-family: var(--font-sarabun);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--star-pink);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.ss-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--dark-blue);
+    border-radius: 3px;
+    margin: 0 auto 20px;
+}
+
+.ss-full-content {
+    font-family: var(--font-sarabun);
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #f1f5f9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    white-space: pre-line;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .ss-section-title {
+        font-size: 1.4rem;
+    }
+
+    .ss-full-title {
+        font-size: 1.3rem;
+    }
+
+    .ss-body-inner {
+        margin: 0 10px;
+        padding: 6px 12px 22px;
+    }
+}
