@@ -5,6 +5,10 @@
    (--primary-blue, --dark-blue, --card-blue, --star-pink,
     --text-white, --text-grey, --font-kanit, --font-sarabun)
    ต้องโหลด style.css ก่อนไฟล์นี้เสมอ
+
+   หมายเหตุ: การกาง/ยุบการ์ดทำด้วย CSS ล้วน (checkbox + label)
+   ไม่ใช้ JavaScript เลย เพื่อให้ทำงานได้แน่นอน
+   ไม่ว่า loadPage() จะดึงเนื้อหาไปแสดงด้วยวิธีไหนก็ตาม
    ========================================================= */
 
 .ss-wrap {
@@ -47,6 +51,7 @@
 
 /* ---------- Card ---------- */
 .ss-card {
+    position: relative;
     background-color: rgba(130, 192, 237, 0.9);
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -54,11 +59,26 @@
     transition: box-shadow 0.25s ease;
 }
 
-.ss-card.open {
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+/* Hidden checkbox that drives the open/close state */
+.ss-check {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.ss-check:checked ~ .ss-card-inner {
+    box-shadow: none;
+}
+
+.ss-check:checked ~ .ss-card-inner .ss-toggle {
+    transform: rotate(180deg);
+    background-color: var(--primary-blue);
 }
 
 .ss-card-head {
+    display: block;
     padding: 16px 18px 14px;
     cursor: pointer;
     user-select: none;
@@ -93,16 +113,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: transform 0.35s ease, background-color 0.2s ease;
 }
 
-.ss-toggle:hover {
+.ss-card-head:hover .ss-toggle {
     background-color: var(--primary-blue);
-}
-
-.ss-card.open .ss-toggle {
-    transform: rotate(180deg);
 }
 
 .ss-title-preview {
@@ -126,14 +141,23 @@
     margin: 0;
 }
 
-/* ---------- Expanding body ---------- */
+/* ---------- Expanding body (pure CSS grid trick) ---------- */
 .ss-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+}
+
+.ss-check:checked ~ .ss-card-inner .ss-body {
+    grid-template-rows: 1fr;
 }
 
 .ss-body-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.ss-body-inner-pad {
     padding: 6px 24px 28px;
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     margin: 0 18px;
@@ -187,7 +211,7 @@
         font-size: 1.3rem;
     }
 
-    .ss-body-inner {
+    .ss-body-inner-pad {
         margin: 0 10px;
         padding: 6px 12px 22px;
     }
